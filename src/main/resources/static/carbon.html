@@ -1,0 +1,186 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML><HEAD><TITLE>碳足迹计算器-Carbon footprint</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<SCRIPT>
+function getResult() {
+	var a;
+	Family_numbers = parseInt(Person.value);
+	LivingArea = parseInt(area.value);
+	Electricity = parseInt(Electric.value);
+	NaturalGas = parseInt(Gas.value);
+	Water = parseInt(H2O.value);
+	Aircraft = parseInt(Fly.value);
+	Train = parseInt(Trains.value);
+	Bus = parseInt(Buses.value);
+	Subway = parseInt(Underground.value);
+	Taxi = parseInt(Cars.value);
+	Elevator = parseInt(Lift.value);
+	Bike = parseInt(Bicycle.value);
+	Plastic_bags = parseInt(Bags.value);
+	Chopsticks = parseInt(Chopstick.value);
+	Clothes = parseInt(Dress.value);
+	Rice = parseInt(Rice_food.value);
+	Meat = parseInt(Pork.value);
+	ComputerTime = parseInt(computer.value);
+	Email_number = parseInt(email.value);
+	Search_number = parseInt(web_search.value);
+	book_magazine = parseInt(Book.value);
+	paper = parseInt(paper_A4.value);
+	if (document.getElementById('Heat').checked == 1) {
+		Heating = document.getElementById("Heat").value
+	} else {
+		Heating = 0
+	};
+	if (document.getElementById('efficientLights').checked == 1) {
+		efficientLight = document.getElementById("efficientLights").value
+	} else {
+		efficientLight = 0
+	}
+	if (document.getElementById('turnsOffLights').checked == 1) {
+		turnsOffLight = document.getElementById("turnsOffLights").value
+	} else {
+		turnsOffLight = 0
+	}
+	if (document.getElementById('equipmentStandby').checked == 1) {
+		equipmentStandbyHabit = document.getElementById("equipmentStandby").value
+	} else {
+		equipmentStandbyHabit = 0
+	}
+	if (document.getElementById('showers').checked == 1) {
+		shower = document.getElementById("showers").value
+	} else {
+		shower = 0
+	}
+	if (document.getElementById('recycle_old').checked == 1) {
+		recycle = document.getElementById("recycle_old").value
+	} else {
+		recycle = 0
+	}
+	if (document.getElementById('solarWaterHeater').checked == 1) {
+		solarWater = document.getElementById("solarWaterHeater").value
+	} else {
+		solarWater = 0
+	}
+	a = (Electricity * 1.02 * 12 + NaturalGas * 1.7978 * 12 + Water * 0.4512 * 12 + Heating * LivingArea * 35) / Family_numbers + Aircraft * 0.139 + Train * 0.0109 + Bus * 0.032 * 365 + (Subway * 0.125) * 1.02 * 365 + ((Elevator * 3 / 1.5) / 3600) * 15 * 1.02 * 365 + Taxi * 0.24 * 365 + Plastic_bags * 0.0001 * 52 + Chopsticks * (0.0229 + 0.001) * 52 + Clothes * 6.4 * 2 + Rice * 0.047 * 4 * 365 + Meat * 0.6 * 365 + (ComputerTime / 10) * 0.943 * 240 + Email_number * 0.0043 * 365 + Search_number * 0.007 * 365 + book_magazine * 3.3 + paper * 0.015 * 12 - Bike * 0.24 * 365 - efficientLight - turnsOffLight - equipmentStandbyHabit - shower - recycle - solarWater;
+	TreeNumber = (a - 2700 * 0.52) / 185;
+	if (TreeNumber < 0) {
+		TreeNumber = 0
+	};
+	TotalChineseCO2 = a * 1300000000;
+	TotalChineseCO2ppm = TotalChineseCO2 / 2000000000000;
+	Temp = 0.015 * TotalChineseCO2ppm;
+	CO2_by_ton = a / 1000;
+	CO2_by_ton = Math.round(CO2_by_ton * 1000) / 1000;
+	TotalChineseCO2 = Math.round(TotalChineseCO2 * 1) / 1;
+	TreeNumber = Math.round(TreeNumber * 10) / 10;
+	TotalChineseCO2ppm = Math.round(TotalChineseCO2ppm * 100) / 100;
+	Temp = Math.round(Temp * 1000) / 1000;
+	document.getElementById('result').value = CO2_by_ton;
+	document.getElementById('trees').value = TreeNumber;
+	document.getElementById('ChineseCO2').value = TotalChineseCO2 / 1000;
+	document.getElementById('ChineseCO2ppm').value = TotalChineseCO2ppm;
+	document.getElementById('temperature').value = Temp
+}</SCRIPT>
+
+<META content="MSHTML 6.00.2900.3660" name=GENERATOR>
+<style type="text/css">
+<!--
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 14px; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #000; LINE-HEIGHT: 22px; PADDING-TOP: 0px; FONT-FAMILY: "Microsoft YaHei", SimSun, "Segoe UI", Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #ff00ff00; TEXT-ALIGN: center
+}
+.maindiv {
+	PADDING-RIGHT: 40px; PADDING-LEFT: 40px; PADDING-BOTTOM: 0px; MARGIN: 0px auto; WIDTH: 760px; PADDING-TOP: 0px; BACKGROUND-COLOR: #6b9d09; TEXT-ALIGN: left
+}
+A {
+	TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #6b9d09
+}
+A:visited {
+	COLOR: #6b9d09
+}
+A:hover {
+	COLOR: #6b9d09
+}
+.headline {
+	FONT-SIZE: 18px
+}
+.copyright {
+	FONT-SIZE: 13px
+}
+
+-->
+</style>
+</HEAD>
+<BODY>
+<DIV class=maindiv>
+<DIV class="maindiv">  
+    <DIV>  
+        <P align="center"><STRONG><SPAN class="headline">碳足迹计算器</SPAN><BR>  
+            <span style="color: red;">你知道坤坤打篮球会在地球上留下多少碳足迹吗？</span><BR>  
+            <span style="color: red;">生活中一些不经意的小事都会给地球加热，而绿色低碳的生活方式不仅可以引领我们走向自然，而且可以帮助地球降温。</span><BR>  
+            <span style="color: red;">守护最好的坤坤家园，需要你我小小的行动。</span></STRONG></P>  
+    </DIV>  
+</DIV><FIELDSET 
+style="PADDING-RIGHT: 20px; PADDING-LEFT: 20px; PADDING-BOTTOM: 20px; PADDING-TOP: 20px"><LEGEND><STRONG>1.住宅</STRONG></LEGEND>
+<DIV>
+<P>家庭成员数（Family numbers）：<SELECT class=text id=Person> <OPTION value=1 
+  selected>1</OPTION> <OPTION value=2>2</OPTION> <OPTION value=3>3</OPTION> 
+  <OPTION value=4>4</OPTION> <OPTION value=5>5</OPTION> <OPTION 
+  value=6>6+</OPTION></SELECT> （人）</P>
+<P>冬季是否用暖气取暖？：<INPUT id=Heat type=checkbox value=2.5675></P>
+<P>居住面积（Living area）: <INPUT id=area value=10>（平方米）</P>
+<P>每月用电度数（Electricity）：<INPUT id=Electric value=50> （度/月）</P>
+<P>每月用天然气（Natural Gas）：<INPUT id=Gas value=10> （立方米/月）</P>
+<P>每月用水（Water）： <INPUT id=H2O value=10> （吨/月）</P></DIV></FIELDSET> 
+<DIV>&nbsp;</DIV>
+<FIELDSET 
+style="PADDING-RIGHT: 20px; PADDING-LEFT: 20px; PADDING-BOTTOM: 20px; PADDING-TOP: 20px"><LEGEND><STRONG>2.交通</STRONG></LEGEND>
+<DIV>
+<P>飞机（Aircraft）：<INPUT id=Fly value=0>（千米/年）</P>
+<P>火车（Train）：<INPUT id=Trains value=500 name=text10> （千米/年）(北京到上海约1500公里)</P>
+<P>公交（Bus）：<INPUT id=Buses value=10 name=text3> （千米/天）</P>
+<P>地铁（Subway）：<INPUT id=Underground value=10> （站/天）</P>
+<P>私家车/出租/公家车（Taxi）：<INPUT id=Cars value=0 name=text5> （千米/天）</P>
+<P>电梯（Elevator）：<INPUT id=Lift value=10 name=text4> （层/天）</P></DIV></FIELDSET> 
+<DIV>&nbsp;</DIV>
+<FIELDSET 
+style="PADDING-RIGHT: 20px; PADDING-LEFT: 20px; PADDING-BOTTOM: 20px; PADDING-TOP: 20px"><LEGEND><STRONG>3.生活习惯</STRONG></LEGEND>
+<DIV>
+<P>每周消耗塑料袋个数（Plastic bags）：<INPUT id=Bags value=10>（个/周）</P>
+<P>每周消耗一次性筷子（Chopsticks）：<INPUT id=Chopstick value=10>（双/周）</P>
+<P>每半年新买衣服（Clothes）：<INPUT id=Dress value=4> （件/半年）</P>
+<P>平均每天主食(Rice)：<INPUT id=Rice_food value=2> （碗/天）</P>
+<P>平均每天肉食(Meat)：<INPUT id=Pork value=1>（盘/天）</P>
+<P>上班用电脑时间：<INPUT id=computer value=4>（小时/天）</P>
+<P>平均每天收发电子邮件数：<INPUT id=email value=2>（封/天）</P>
+<P>每天使用搜索次数：<INPUT id=web_search value=10>（次/天）（如Google，百度）</P>
+<P>平均每月买书或杂志：<INPUT id=Book value=2>（册/月）</P>
+<P>平均每月打印纸张：<INPUT id=paper_A4 value=20>（张/月）</P></DIV></FIELDSET> 
+<DIV>&nbsp;</DIV>
+<FIELDSET 
+style="PADDING-RIGHT: 20px; PADDING-LEFT: 20px; PADDING-BOTTOM: 20px; PADDING-TOP: 20px"><LEGEND><STRONG>您可以减少CO2的好习惯</STRONG></LEGEND>
+<DIV>
+<P>自行车代步（Bike）：<INPUT id=Bicycle value=0>（千米/天）</P>
+<P><INPUT id=efficientLights type=checkbox value=68.6> 节能灯泡 
+(在亮度相等的情况下，节能灯泡比普通钨丝灯泡节省20%的能源) </P>
+<P><INPUT id=turnsOffLights type=checkbox value=4.7> 我习惯随手关灯</P>
+<P><INPUT id=equipmentStandby type=checkbox value=6> 我不使电器处于待机状态 </P>
+<P><INPUT id=showers type=checkbox value=469.8> 我习惯淋浴而非盆浴 </P>
+<P><INPUT id=recycle_old type=checkbox value=42> 我循环使用至少30%的家庭废旧物品</P>
+<P><INPUT id=solarWaterHeater type=checkbox value=308> 
+太阳能热水器</P></DIV></FIELDSET> 
+<DIV>
+<P>  
+    <INPUT id="btn" onclick="getResult()" type="button" value="点击此处，开始计算结果" name="button" style="color: red; background-color: white; border: none;">  
+</P>
+<BR>您一年排放CO2: <INPUT id=result value=这里显示结果>(吨)</P>
+<P>13亿中国人每年排放CO2：<INPUT id=ChineseCO2 value=这里显示结果>(吨)</P>
+<P>相当于<INPUT id=ChineseCO2ppm value=这里显示结果>（ppmv/年）</P>
+<P>全球气温会因此增加<INPUT id=temperature value=这里显示结果>（摄氏度/年）</P>
+<P>除去世界人均森林，您1年消耗的碳排放还需<INPUT id=trees value=植树数量>棵树用4坤年来抵偿！</P>
+<P class=copyright>&nbsp;</P>
+</DIV></DIV></BODY></HTML>

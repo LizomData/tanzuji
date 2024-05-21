@@ -1,0 +1,43 @@
+#Spring配置
+spring:
+
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+      exclude: WEB-INF/**
+  thymeleaf:
+    cache: false #使用Thymeleaf模板引擎，关闭缓存
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: CarbonFoot
+  #数据库四项
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.98.177.117:3000/carbonfoot
+    username: carbonfoot
+    password: EzFcPkb4ZcpjisrP
+  main:
+    allow-circular-references: true
+  #修改图片上传大小
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+#mybatis配置
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+#服务器端口
+server:
+  port: 8080
+
+
+springdoc:
+  swagger-ui:
+    path: /myapi
+
